@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dom Purify</title>
+<script src="/static/trustedtypes.build.js" data-csp="trusted-types sanitize; require-trusted-types-for 'script'"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.5/purify.min.js" integrity="sha512-GaomFB92Lot7wDqZgVgLMJwQhuVUEcPHP99xmWSVE4Kq54t1jDyH7mdKDsmN8jOMSjiQq8pf7Et+OM4ml/PVMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+    <body>
+      <h1>Trusted Types</h1>
+      <hr/>
+      <div id="content">
+        hello there!
+      </div>
+    </body>
+    <script>
+var node  = document.getElementById("content");
+const p = '<img src=x onerror=alert(1)>';
+htmlPolicy = trustedTypes.createPolicy('sanitize', {
+    createHTML: s => s.replace(/\</g, '&lt;')
+});
+node.innerHTML = htmlPolicy.createHTML(p);
+node.innerHTML = p; // unsafe
+    </script>
+</html>
+

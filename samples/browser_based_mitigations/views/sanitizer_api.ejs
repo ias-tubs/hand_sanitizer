@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sanitizer API</title>
+  </head>
+    <body>
+      <h1>Sanitizer API</h1>
+      <hr/>
+      <div id="content">
+        hello there!
+      </div>
+      <div id="content2">
+        hello there again
+      </div>
+    </body>
+    <script>
+    var node = document.getElementById("content");
+    //if(document.location.search) {
+        //var default_value = getUrlParameter("default");
+      let sanitizer = new Sanitizer();
+      let payload = '<img src=x onerror=alert(1)>';
+      node.setHTML(payload, sanitizer);
+      var node2 = document.getElementById("content2");
+      let sanitized = sanitizer.sanitizeFor('div', payload);
+      //node2.innerHTML = sanitized.innerHTML;
+      node2.replaceChildren(...sanitized.childNodes);
+    </script>
+</html>
+
