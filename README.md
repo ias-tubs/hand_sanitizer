@@ -20,11 +20,15 @@ If you have any questions please do not hesitate to [contact us](mailto:david.kl
 
 ## Open Sourced Components
 
-We are currently working on open sourcing additional components and will update this page accordingly.
+We are currently working on open sourcing additional components, pending intellectual property approval from the involved industrial partner, and will update this page accordingly.
 
 ### Taint Browser
 
 The taint browser used throughout our study is open source on Github as [Project Foxhound](https://github.com/SAP/project-foxhound). We used [Version 80](https://github.com/SAP/project-foxhound/releases/tag/v80.0) for all our experiments.
+
+### MONA
+
+The changes we made to the MONA library are [available on Github](https://github.com/tmbrbr/MONA) as well.
 
 
 ## Materials
